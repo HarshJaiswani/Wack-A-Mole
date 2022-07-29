@@ -2,7 +2,6 @@ const start = document.querySelector('.start');
 const holes = document.querySelectorAll('.play');
 const scoreBoard = document.querySelector('.score');
 const mole = Array.from(document.querySelectorAll('.mole'));
-console.log(mole);
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -16,7 +15,6 @@ function randomHole(holes) {
     let hole = holes[idx];
 
     if (lastHole == hole) {
-        // console.log('Ahh not again that');
         return randomHole(holes);
     }
 
@@ -35,12 +33,11 @@ function peep() {
 }
 
 function hit(e) {
-    console.log('hit');
     if (!e.isTrusted) return;
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
-    // this.removeEventListner('click');
+    this.removeEventListner('click');
 }
 
 function startGame() {
